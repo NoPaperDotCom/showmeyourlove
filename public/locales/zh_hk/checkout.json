@@ -1,0 +1,16 @@
+{
+  "terms": "歡迎選購線上電子婚禮服務，選購前請先細閱使用條款({{link}})。一經購買，代表你已經同意條款上的使用守則。",
+  "items": {
+    "online-one-year": "一年線上電子婚禮服務",
+    "online-six-month": "六個月線上電子婚禮服務",
+    "online-one-month": "一個月線上電子婚禮服務"
+  },
+  "recipt-message": "* 請保留收據,方便日後核對資料",
+  "recipt-transactionid": "收據編號: {{objectId}}",
+  "recipt-username": "使用者姓名/電郵: {{userName}}",
+  "recipt-item": "購買物品: {{item}}",
+  "recipt-cost": "價格: ${{price}} {{currency}}",
+  "recipt-start-date": "開始日期: {{startDate}}",
+  "recipt-expired-date": "到期日期: {{expiredDate}}",
+  "recipt-remarks": "備註: {{remarks}}"
+}
