@@ -12,7 +12,7 @@ const nextConfig = {
     PARSE_SERVER_URL: "https://parseapi.back4app.com",
     PARSE_APPLICATION_ID: "27bPUjVJ86FA0Wac8uZQou0XXFoLyufKEZBxCav2",
     PARSE_REST_API_KEY: "OwJrknH09LV4tktLEAtFZvOiNotwUKuaa0WTWMR6",
-    ...keys,
+    // ...keys,
     ...websiteSetting
   }
 };
