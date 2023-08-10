@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const keys = require("./private.key.js");
+// const keys = require("./private.key.js");
 const websiteSetting = require("./website.config.js");
 
 const nextConfig = {
