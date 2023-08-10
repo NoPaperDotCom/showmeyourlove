@@ -128,7 +128,7 @@ const Card = ({ t, role, picture, name, contactNumber, size, onUpdateHandler }) 
           return setOverlayDisplay("picture-upload-modal", true);
         }}
       >
-        {(picture.length === 0) ? <Text size={0.75} weight={2} color={styles.color.darkgrey}>{t("edit-picture")}</Text> : <ImageBackground src={picture} />}
+        {(picture.length === 0) ? <Text size={0.75} weight={2} color={styles.color.darkgrey}>{t("edit-picture")}</Text> : <ImageBackground size="cover" src={picture} />}
       </Flex>
       <Flex size={["80%", "auto"]} itemPosition={["start", "center"]} baseStyle={{ flexGrow: 1 }} padding={1.5}>
         <Block align="start" size="fullwidth">
@@ -383,7 +383,7 @@ export default function Index({ localeObj, url }) {
               <OutlineBtn
                 size={"auto"}
                 focusScaleEffect={0.8}
-                onClick={() => { window.localStorage.removeItem(process.env.LOCALSTORAGE_SESSION_TOKEN_KEY); _router.replace("/"); }}
+                onClick={() => { window.localStorage.removeItem(process.env.LOCALSTORAGE_SESSION_TOKEN_KEY); _router.replace("/ewedding"); }}
               >
                 <Icon name="logout" color={styles.color.lighten} size={1.5} />
               </OutlineBtn>
@@ -438,7 +438,7 @@ export default function Index({ localeObj, url }) {
               return await _callUpdateAction("updatePhotos", { id: item.id, requestExisting: true, order: _setting.photos[0].order + 1 });
             }
           }, { key: "name", space: "45%" }]}
-          onCreateAction={() => { callMethod("photos-property-modal", "setContent", { isModify: false, property: { name: "", url: "", ext: "photo", content: { head: "", body: "", end: "", color: "#ffffff" }, order: ((_setting.photos.length === 0) ? 1 : _setting.photos[0].order + 1) }}); return setOverlayDisplay("photos-property-modal", true); }}
+          onCreateAction={() => { callMethod("photos-property-modal", "setContent", { isModify: false, property: { name: "", url: "", ext: "photo", content: { head: "", body: "", end: "", color: "#ffffff" }, filter: false, order: ((_setting.photos.length === 0) ? 1 : _setting.photos[0].order + 1) }}); return setOverlayDisplay("photos-property-modal", true); }}
           onModityAction={(item) => { callMethod("photos-property-modal", "setContent", { isModify: true, property: item }); return setOverlayDisplay("photos-property-modal", true); }}
           onDestroyAction={(item) => { callMethod("confirm-modal", "setContent", { title: `${t("confirm")}${t("delete")}`, content: `${t("confirm")}${t("delete")}?`, onClick: async () => await _callUpdateAction("destroyPhotos", { ids: [item.id] }) }); return setOverlayDisplay("confirm-modal", true); }}
         />

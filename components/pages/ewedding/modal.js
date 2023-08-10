@@ -348,7 +348,7 @@ export const SchedulesModal = ({ id="schedules-property-modal", t, onUpdateHandl
 };
 
 export const PhotosModal = ({ id="photos-property-modal", t, onUpdateHandler }) => {
-  const [_setting, _setSetting] = React.useState({ isModify: false, property: { name: "", url: "", ext: "photo", content: { head: "", body: "", end: "", color: "#ffffff" }, order: 1 } });
+  const [_setting, _setSetting] = React.useState({ isModify: false, property: { name: "", url: "", ext: "photo", content: { head: "", body: "", end: "", color: "#ffffff" }, filter: false, order: 1 } });
   useMethod(id, "setContent", ({ isModify, property }) => _setSetting(old => ({ ...old, isModify, property })));
 
   return (
@@ -387,6 +387,23 @@ export const PhotosModal = ({ id="photos-property-modal", t, onUpdateHandler }) 
             <Icon size={1.5} name="help" />
           </OutlineBtn>
         </Flex>
+      </Flex>
+      <Flex itemPosition={["start", "center"]} size="fullwidth" padding={[0, 0, 0.5, 0]}>
+        <Flex itemPosition={["start", "center"]} size={["auto", 2]} gap={0.5} padding={[0, 0, 0.5, 0]} baseStyle={{ flex: 1 }}>
+          <Text size={0.75} weight={1} color={styles.color.darkgrey}>{t("photos-filter-placeholder")}</Text>&nbsp;
+          <Toggle size={2.5} color={styles.color.darken} checked={(_setting.property.filter !== false)} onChange={(e) => _setSetting(old => ({ ...old, property: { ...old.property, filter: (old.property.filter !== false) ? false : "#ffffff" } }))} />
+        </Flex>
+        {(!_setting.property.filter) ? null : <Flex itemPosition={["start", "center"]} size={["40%", "auto"]} padding={[0, 0, 0.5, 0]}>
+          <ColorInput
+            border
+            rounded
+            color={styles.color.darkgrey}
+            placeholder={t("photos-filter-color-placeholder")}
+            onChange={(ev) => _setSetting(old => ({ ...old, property: { ...old.property, filter: ev.target.value } }))}
+            baseStyle={{ size: ["100%", 2] }}
+            value={_setting.property.filter}
+          />
+        </Flex>}
       </Flex>
       <Flex itemPosition={["start", "center"]} size="fullwidth" padding={[0, 0, 0.5, 0]}>
         <Flex itemPosition={["start", "center"]} size={["60%", "auto"]}>
@@ -723,9 +740,16 @@ export const QRCodeScanModal = ({ id="scan-visitor-modal", t, onUpdateHandler, s
   );
 };
 
-export const SchedulesViewerPopup = ({ id="schedules-viewer-popup", t, schedules, helpers, address, husband, wife }) => {
+export const SchedulesViewerPopup = ({ id="schedules-viewer-popup", t, meId, schedules, helpers, address, husband, wife }) => {
   const HelperItem = ({ id }) => {
     let _helper = false;
+    if (id === meId && meId !== false) {
+      return (
+        <Flex itemPosition={["start", "center"]} size={["60%", "auto"]}>
+          <Text size={1} color={styles.color.white}>{t("me")}</Text>
+        </Flex>
+      );
+    }
     if (id === "husband") { _helper = { ...husband, name: t("husband") }; }
     else if (id === "wife") { _helper = { ...wife, name: t("wife") }; }
     else { _helper = helpers.find(h => id === h.id); }

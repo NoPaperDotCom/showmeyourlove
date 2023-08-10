@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps }) {
       >
         <ColorBackground fixed color={{ s: 0.7, l: 0.8 }} />
         <Component {...pageProps} />
-        <ShowMeYourLoveFooter shareLabel={t("share")} />
+        {(pageProps.noFooter) ? null : <ShowMeYourLoveFooter shareLabel={t("share")} />}
         <ConfirmModal id="confirm-modal" btnYesText={t("yes")} btnNoText={t("no")} />
         <PromptModal id="prompt-modal" btnEditText={t("edit")} btnCancelText={t("cancel")} />
         <LoadingPopup id="loading-popup" />

@@ -1,6 +1,7 @@
 {
   "yes": "好的",
   "no": "不",
+  "me": "我",
   "confirm": "確定",
   "all": "全部",
   "close": "離開",
@@ -17,6 +18,7 @@
   "contact": "聯絡我們",
   "about": "關於我們",
   "detail": "了解詳情",
+  "sample": "< 觀看範例 >",
   "include": "包括",
   "buy1month": "購買1個月使用",
   "buy6month": "購買6個月使用",
@@ -40,5 +42,6 @@
   "style": "風格",
   "content": "內容",
   "preview": "預覽",
-  "admin": "管理員"
+  "admin": "管理員",
+  "down-more": "往下了解更多"
 }
