@@ -105,7 +105,7 @@ export async function getServerSideProps({ params, query, req, res }) {
   if (!_ret.user || !_ret.user.sessionToken) {
     return {
       redirect: {
-        destination: "/wedding",
+        destination: "/ewedding",
         permanent: false
       }
     };
