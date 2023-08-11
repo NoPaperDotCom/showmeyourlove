@@ -58,7 +58,13 @@ export default function Index({ localeObj }) {
 }
 
 export async function getServerSideProps({ locale, req, res }) {
-  const _locale = (!locale) ? "zh_hk" : locale;
-  const _localeObj = getLocaleObj(_locale, ["common", "app", "index", "products"]);
-  return { props: { localeObj: _localeObj } };
+  //const _locale = (!locale) ? "zh_hk" : locale;
+  //const _localeObj = getLocaleObj(_locale, ["common", "app", "index", "products"]);
+  //return { props: { localeObj: _localeObj } };
+  return {
+    redirect: {
+      destination: "/ewedding",
+      permanent: false
+    }
+  };
 }
