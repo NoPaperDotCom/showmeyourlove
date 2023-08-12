@@ -15,8 +15,8 @@ export default function Document() {
           "Roboto": false,
           "Noto Sans TC": [700, 900]
         }} />
-        {(process.env.NODE_ENV !== "production" && !process.env.GOOGLE_GTAG_ID) ? null : <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_GTAG_ID}`}></Script>}
-        {(process.env.NODE_ENV !== "production" && !process.env.GOOGLE_GTAG_ID) ? null: 
+        {(process.env.NODE_ENV !== "production" || !process.env.GOOGLE_GTAG_ID) ? null : <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_GTAG_ID}`}></Script>}
+        {(process.env.NODE_ENV !== "production" || !process.env.GOOGLE_GTAG_ID) ? null: 
           <Script id="google-analytics" strategy="afterInteractive">
           {`
              window.dataLayer = window.dataLayer || [];
