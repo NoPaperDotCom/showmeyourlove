@@ -198,7 +198,7 @@ export default function Visitor({ localeObj, me, helpers, address, schedules, ph
   return (
     <>
       <Navbar t={t} wedding={me.wedding} isHelper={me.isHelper} isAdmin={!me.id} router={_router} />
-      {(me.status === "ACCEPTED") ? <QRCodeTag t={t} me={me} router={_router} /> : <Information height={(photos.length === 0) ? "85vh" : "100vh"} t={t} me={me} />}
+      {(me.status === "ACCEPTED") ? <QRCodeTag t={t} me={me} router={_router} /> : <Information height={(photos.length === 0) ? "80vh" : "100vh"} t={t} me={me} />}
       {(me.status !== "ARRIVED") ? null : <Flex size="auto" itemPosition="start" padding={[0, 2]}>{photos.sort((a, b) => b.order > a.order).map(p => <Photo key={p.id} photo={p} />)}</Flex>}
       {(!me.isHelper) ? null : <QRCodeScanModal id="scan-visitor-modal" t={t} onUpdateHandler={(!sessionToken) ? callParseMethod : (name, params) => callParseMethod(name, { ...params, sessionToken })} scanId={me.id} />}
       {(!me.isHelper) ? null : <SchedulesViewerPopup id="schedules-viewer-popup" t={t} meId={me.id} schedules={schedules.sort((a, b) => (a.period[0] === b.period[0]) ? a.period[1] > b.period[1] : a.period[0] > b.period[0])} address={address} helpers={helpers} husband={me.husband} wife={me.wife} />}
