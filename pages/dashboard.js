@@ -32,6 +32,8 @@ export default function Dashboard({ localeObj, host, sessionToken }) {
 
   React.useEffect(() => {
     let _ac = false;
+    let _timer = false;
+
     const _sessionToken = sessionToken || window.localStorage.getItem(process.env.NOPAPER_SESSION_TOKEN);
     if (!_sessionToken) { _router.replace("/"); }
     else {
@@ -44,11 +46,16 @@ export default function Dashboard({ localeObj, host, sessionToken }) {
         if (status === "unauthorized") { _router.replace("/"); }
 
         window.localStorage.setItem(process.env.NOPAPER_SESSION_TOKEN, _sessionToken);
+        if (status !== "expired") { _timer = window.setTimeout(() => _setState(old => ({ ...old, status: "expired" })), user.expiredDate - (new Date()).valueOf()); }
         return _setState({ status, user: { ...user, sessionToken: _sessionToken } });
       });
     }
 
-    return () => (_ac) ? _ac.abort(): true;    
+    return () => {
+      if (_ac) { _ac.abort(); }
+      if (_timer) {window.clearTimeout(_timer); }
+      return true;
+    };
   }, [sessionToken]);
 
   if (_state.status === "loading") { return <Loading /> }
