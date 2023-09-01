@@ -22,7 +22,7 @@ export default function NotPurchase({ t, router, host, user }) {
       serviceName: t("app-name"),
       currency: "hkd"
     };
-    const _paymentCode = Buffer.from(JSON.stringify(_payment), 'utf8').toString('base64');
+    const _paymentCode = Buffer.from(encodeURIComponent(JSON.stringify(_payment)), 'utf8').toString('base64');
     return `${process.env.NOPAPER_URL}checkout/stripe?sessionToken=${user.sessionToken}&paymentCode=${_paymentCode}&successRedirectUrl=${host}/dashboard&cancelRedirectUrl=${host}/dashboard`;
   };
 
