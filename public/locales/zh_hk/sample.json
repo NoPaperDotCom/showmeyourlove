@@ -1,0 +1,33 @@
+{
+  "sample-name1": "遠房親戚",
+  "sample-title1": "遠房親戚",
+  "sample-name2": "Stephen",
+  "sample-title2": "Stephen",
+  "sample-wedding-name": "李李聯婚",
+  "sample-husband-name": "Andrew Li",
+  "sample-wife-name": "Carman Li",
+  "sample-category1": ["女家親戚", "姊妹"],
+  "sample-category2": ["男家中同"],
+  "sample-address1": {
+    "name": "凱悅酒店",
+    "location": "新界沙田澤祥街 18 號, 香港, 香港特別行政區",
+    "website": "https://www.hyatt.com/zh-HK/hotel/china/hyatt-regency-hong-kong-sha-tin/shahr",
+    "contact": "37231234",
+    "activity": "接新娘"
+  },
+  "sample-address2": {
+    "name": "星海譽宴",
+    "location": "尖沙咀彌敦道100號The ONE 18樓",
+    "website": "https://www.openrice.com/zh/hongkong/r-%E6%98%9F%E6%B5%B7-%E8%AD%BD%E5%AE%B4-%E5%B0%96%E6%B2%99%E5%92%80-%E7%B2%B5%E8%8F%9C-%E5%BB%A3%E6%9D%B1-%E9%BB%9E%E5%BF%83-r503245",
+    "contact": "28119979",
+    "activity": "婚宴及宴會場地"
+  },
+  "sample-schedule1": {
+    "name": "集合",
+    "description": "集合"
+  },
+  "sample-schedule2": {
+    "name": "拍照",
+    "description": "拍照"
+  }
+}
