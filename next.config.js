@@ -3,7 +3,7 @@ const nextConfig = {
   env: {
     ENABLE_STYLE_LOG: false,
     ENABLE_EVENT_LOG: true,
-    GOOGLE_GTAG_ID: "G-J6DJQYM1XS"
+    GOOGLE_GTAG_ID: "G-J6DJQYM1XS",
     NOPAPER_SESSION_TOKEN: "nopaper:session-token",
     NOPAPER_URL: "https://nopaper.vercel.app/",
     NOPAPER_SERVICE_NAME: "showmeyourlove",
