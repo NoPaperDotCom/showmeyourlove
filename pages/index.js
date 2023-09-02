@@ -27,7 +27,7 @@ const _getGoogleOauthUrl = (hostUrl) => {
     trialMinutes: 30
   };
 
-  const _oauthCode = Buffer.from(JSON.stringify(_oauth), 'utf8').toString('base64');
+  const _oauthCode = Buffer.from(encodeURIComponent(JSON.stringify(_oauth), 'utf8')).toString('base64');
   return `${process.env.NOPAPER_URL}oauth/google?requestLink=1&oauthCode=${_oauthCode}`;
 }
 
